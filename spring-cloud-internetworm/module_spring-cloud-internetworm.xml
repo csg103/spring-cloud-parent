@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_spring-cloud-internetworm" default="compile.module.spring-cloud-internetworm">
+  <dirname property="module.spring-cloud-internetworm.basedir" file="${ant.file.module_spring-cloud-internetworm}"/>
+  
+  <property name="module.jdk.home.spring-cloud-internetworm" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.spring-cloud-internetworm" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.spring-cloud-internetworm" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.spring-cloud-internetworm" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="spring-cloud-internetworm.output.dir" value="${module.spring-cloud-internetworm.basedir}/target/classes"/>
+  <property name="spring-cloud-internetworm.testoutput.dir" value="${module.spring-cloud-internetworm.basedir}/target/test-classes"/>
+  
+  <path id="spring-cloud-internetworm.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="spring-cloud-internetworm.module.production.classpath">
+    <path refid="${module.jdk.classpath.spring-cloud-internetworm}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-undertow:1.5.4.release.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-core:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-api:3.3.6.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-servlet:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.annotation:jboss-annotations-api_1.2_spec:1.0.0.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-websockets-jsr:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.websocket:jboss-websocket-api_1.1_spec:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish:javax.el:3.0.0.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.17.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.14.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-data-redis:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-redis:1.8.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-keyvalue:1.2.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-commons:1.13.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-oxm:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context-support:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_redis.clients:jedis:2.9.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-devtools:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.jsoup:jsoup:1.9.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-log4j2:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-slf4j-impl:2.7.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.7.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-core:2.7.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.25.classpath"/>
+  </path>
+  
+  <path id="spring-cloud-internetworm.runtime.production.module.classpath">
+    <pathelement location="${spring-cloud-internetworm.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.17.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-undertow:1.5.4.release.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-core:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-api:3.3.6.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-nio:3.3.6.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-servlet:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.annotation:jboss-annotations-api_1.2_spec:1.0.0.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-websockets-jsr:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.websocket:jboss-websocket-api_1.1_spec:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish:javax.el:3.0.0.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.17.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.14.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-data-redis:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-redis:1.8.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-keyvalue:1.2.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-commons:1.13.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-oxm:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context-support:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_redis.clients:jedis:2.9.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-devtools:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.jsoup:jsoup:1.9.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-log4j2:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-slf4j-impl:2.7.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.7.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-core:2.7.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.25.classpath"/>
+  </path>
+  
+  <path id="spring-cloud-internetworm.module.classpath">
+    <path refid="${module.jdk.classpath.spring-cloud-internetworm}"/>
+    <pathelement location="${spring-cloud-internetworm.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.17.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-undertow:1.5.4.release.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-core:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-api:3.3.6.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-nio:3.3.6.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-servlet:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.annotation:jboss-annotations-api_1.2_spec:1.0.0.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-websockets-jsr:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.websocket:jboss-websocket-api_1.1_spec:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish:javax.el:3.0.0.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.17.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.14.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-data-redis:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-redis:1.8.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-keyvalue:1.2.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-commons:1.13.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-oxm:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context-support:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_redis.clients:jedis:2.9.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-devtools:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.jsoup:jsoup:1.9.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-log4j2:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-slf4j-impl:2.7.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.7.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-core:2.7.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-test:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test-autoconfigure:1.5.4.release.classpath"/>
+    <path refid="library.maven:_com.jayway.jsonpath:json-path:2.2.0.classpath"/>
+    <path refid="library.maven:_net.minidev:json-smart:2.2.1.classpath"/>
+    <path refid="library.maven:_net.minidev:accessors-smart:1.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:5.0.3.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.assertj:assertj-core:2.6.0.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-core:1.10.19.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.1.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-library:1.3.classpath"/>
+    <path refid="library.maven:_org.skyscreamer:jsonassert:1.4.0.classpath"/>
+    <path refid="library.maven:_com.vaadin.external.google:android-json:0.0.20131108.vaadin1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:4.3.9.release.classpath"/>
+  </path>
+  
+  <path id="spring-cloud-internetworm.runtime.module.classpath">
+    <pathelement location="${spring-cloud-internetworm.testoutput.dir}"/>
+    <pathelement location="${spring-cloud-internetworm.output.dir}"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-autoconfigure:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.yaml:snakeyaml:1.17.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-undertow:1.5.4.release.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-core:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.3.1.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-api:3.3.6.final.classpath"/>
+    <path refid="library.maven:_org.jboss.xnio:xnio-nio:3.3.6.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-servlet:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.annotation:jboss-annotations-api_1.2_spec:1.0.0.final.classpath"/>
+    <path refid="library.maven:_io.undertow:undertow-websockets-jsr:1.4.15.final.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.websocket:jboss-websocket-api_1.1_spec:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish:javax.el:3.0.0.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.17.classpath"/>
+    <path refid="library.maven:_org.projectlombok:lombok:1.16.14.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-data-redis:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-redis:1.8.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-keyvalue:1.2.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.data:spring-data-commons:1.13.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-oxm:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context-support:4.3.9.release.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_redis.clients:jedis:2.9.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-pool2:2.4.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-devtools:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.jsoup:jsoup:1.9.2.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-log4j2:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-slf4j-impl:2.7.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.7.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-core:2.7.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:jul-to-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-starter-test:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test:1.5.4.release.classpath"/>
+    <path refid="library.maven:_org.springframework.boot:spring-boot-test-autoconfigure:1.5.4.release.classpath"/>
+    <path refid="library.maven:_com.jayway.jsonpath:json-path:2.2.0.classpath"/>
+    <path refid="library.maven:_net.minidev:json-smart:2.2.1.classpath"/>
+    <path refid="library.maven:_net.minidev:accessors-smart:1.1.classpath"/>
+    <path refid="library.maven:_org.ow2.asm:asm:5.0.3.classpath"/>
+    <path refid="library.maven:_junit:junit:4.12.classpath"/>
+    <path refid="library.maven:_org.assertj:assertj-core:2.6.0.classpath"/>
+    <path refid="library.maven:_org.mockito:mockito-core:1.10.19.classpath"/>
+    <path refid="library.maven:_org.objenesis:objenesis:2.1.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-library:1.3.classpath"/>
+    <path refid="library.maven:_org.skyscreamer:jsonassert:1.4.0.classpath"/>
+    <path refid="library.maven:_com.vaadin.external.google:android-json:0.0.20131108.vaadin1.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:4.3.9.release.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.spring-cloud-internetworm">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.spring-cloud-internetworm">
+    <patternset refid="excluded.from.module.spring-cloud-internetworm"/>
+  </patternset>
+  
+  <path id="spring-cloud-internetworm.module.sourcepath">
+    <dirset dir="${module.spring-cloud-internetworm.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="spring-cloud-internetworm.module.test.sourcepath">
+    <dirset dir="${module.spring-cloud-internetworm.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.spring-cloud-internetworm" depends="compile.module.spring-cloud-internetworm.production,compile.module.spring-cloud-internetworm.tests" description="Compile module spring-cloud-internetworm"/>
+  
+  <target name="compile.module.spring-cloud-internetworm.production" depends="register.custom.compilers" description="Compile module spring-cloud-internetworm; production classes">
+    <mkdir dir="${spring-cloud-internetworm.output.dir}"/>
+    <javac2 destdir="${spring-cloud-internetworm.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.spring-cloud-internetworm}/javac">
+      <compilerarg line="${compiler.args.spring-cloud-internetworm}"/>
+      <bootclasspath refid="spring-cloud-internetworm.module.bootclasspath"/>
+      <classpath refid="spring-cloud-internetworm.module.production.classpath"/>
+      <src refid="spring-cloud-internetworm.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.spring-cloud-internetworm"/>
+    </javac2>
+    
+    <copy todir="${spring-cloud-internetworm.output.dir}">
+      <fileset dir="${module.spring-cloud-internetworm.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.spring-cloud-internetworm.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.spring-cloud-internetworm.tests" depends="register.custom.compilers,compile.module.spring-cloud-internetworm.production" description="compile module spring-cloud-internetworm; test classes" unless="skip.tests">
+    <mkdir dir="${spring-cloud-internetworm.testoutput.dir}"/>
+    <javac2 destdir="${spring-cloud-internetworm.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.spring-cloud-internetworm}/javac">
+      <compilerarg line="${compiler.args.spring-cloud-internetworm}"/>
+      <bootclasspath refid="spring-cloud-internetworm.module.bootclasspath"/>
+      <classpath refid="spring-cloud-internetworm.module.classpath"/>
+      <src refid="spring-cloud-internetworm.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.spring-cloud-internetworm"/>
+    </javac2>
+    
+    <copy todir="${spring-cloud-internetworm.testoutput.dir}">
+      <fileset dir="${module.spring-cloud-internetworm.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.spring-cloud-internetworm" description="cleanup module">
+    <delete dir="${spring-cloud-internetworm.output.dir}"/>
+    <delete dir="${spring-cloud-internetworm.testoutput.dir}"/>
+  </target>
+</project>
