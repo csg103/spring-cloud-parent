@@ -22,7 +22,7 @@ import java.util.List;
 @Service
 @Log4j2
 @AllArgsConstructor
-public class Weather implements ParserWeather {
+public class WeatherImpl implements ParserWeather {
     private static final String WEATHER = "http://m.weather.com.cn/mtown/index";
 
 

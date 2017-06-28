@@ -275,17 +275,25 @@
             }
     );
 
-
+//根据经纬度查询天气
     function getWeather(x,y){
         $.ajax({
             url:"api/getWeather",
             type:"get",
             dataType:"jsonp",
             data:{"x":x,"y":y},
+            async: false,
             crossDomain: true,
             headers: {'Content-Type': 'application/json'},
             success: function (res) {
-
+                alert();
+                alert(res);
+                var time =res[0].time;
+            },
+            error: function(XMLHttpRequest, textStatus) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
             }
         })
     }

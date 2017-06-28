@@ -13,7 +13,7 @@
 
     <loggers>
         <logger name="com.roncoo.education" level="info" />
-        <root level="info">
+        <root level="debug">
             <appenderref ref="CONSOLE" />
         </root>
     </loggers>
