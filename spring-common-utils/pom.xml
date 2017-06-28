@@ -9,31 +9,15 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>1.5.3.RELEASE</spring-boot.version>
         <java.version>1.8</java.version>
         <lombock.version>1.16.16</lombock.version>
         <fastjson.version>1.2.32</fastjson.version>
         <commons-lang3.version>3.5</commons-lang3.version>
         <jsoup.version>1.10.2</jsoup.version>
-        <spring-cloud.version>Dalston.SR1</spring-cloud.version>
-        <docker.image.prefix>csg</docker.image.prefix>
     </properties>
-    <dependencyManagement>
-        <dependencies>
-            <!-- Spring Boot -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
     <dependencies>
         <!-- 代码简化 Lombok -->
         <dependency>
@@ -59,7 +43,6 @@
             <artifactId>dozer</artifactId>
             <version>5.5.1</version>
         </dependency>
-
 
     </dependencies>
 

@@ -1,5 +1,6 @@
 package com.csg.dto;
 
+
 import lombok.Data;
 
 /**
@@ -13,6 +14,6 @@ public class WeatherInfo {
     private  String time;
     private String weatherAM;
     private String weatherPM;
-    private String toptemperature;
-    private  String lowtemperature;
+    private String topTemperature;
+    private  String lowTemperature;
 }

@@ -45,7 +45,7 @@ public class WeatherImpl implements ParserWeather {
             weatherInfo.setWeatherPM(img1.get(1).attr("src"));
 
             Elements temperature = li.select("span");
-            weatherInfo.setLowtemperature(temperature.text());
+            weatherInfo.setLowTemperature(temperature.text());
             list.add(weatherInfo);
         }
         return list;
