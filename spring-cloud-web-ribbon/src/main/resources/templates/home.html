@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>沧海云视频-个人定制视频库</title>
+    <title>沧海云视频-个人定制视频库111</title>
     <link rel="stylesheet" href="../css/carousel.css">
     <link rel="stylesheet" href="../css/docs.min.css">
     <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
@@ -12,7 +12,7 @@
 
 <body style="background-color: #f1f1f1; padding-bottom: 0">
 
-<div th:insert="~{header :: nav}"></div>
+<div th:include="header :: nav"></div>
 
 
 <!-- Start Carousel -->
@@ -260,21 +260,35 @@
     $(document).ready(
             function ()
             {
-                $.get(
-                        "/friend/list-home", function (data)
-                        {
-                            for (var i = 0; i < data.length; i++) {
-                                var box = $("<div class='col-md-2 col-xs-3'></div>");
-                                var item = $("<a href='' target='_blank'></a>");
-                                item.text(data[i].name);
-                                item.attr("href", data[i].domain);
-                                box.append(item);
-                                $("#linkList").append(box);
-                            }
-                        }
-                );
+                $.ajax({
+                    url:"https://api.map.baidu.com/location/ip?ak=Bnri1fKeSDqQ9z5G9ckvfGue&coor=bd09ll",
+                    type:"get",
+                    dataType:"jsonp",
+                    data:"",
+                    crossDomain: true,
+                    headers: {'Content-Type': 'application/json'},
+                    success: function (res) {
+                        getWeather(res.content.point.x,res.content.point.y);
+
+                    }
+                })
             }
     );
+
+
+    function getWeather(x,y){
+        $.ajax({
+            url:"api/getWeather",
+            type:"get",
+            dataType:"jsonp",
+            data:{"x":x,"y":y},
+            crossDomain: true,
+            headers: {'Content-Type': 'application/json'},
+            success: function (res) {
+
+            }
+        })
+    }
 </script>
 
 </body>

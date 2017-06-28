@@ -2,6 +2,7 @@ package com.csg.parse;
 
 
 import com.csg.dto.Video;
+import com.csg.dto.WeatherInfo;
 
 /**
  * 解析器管理器
@@ -29,5 +30,13 @@ public interface ParserManager {
    * @return 文章信息
    */
  // Article parseArticle(String url);
+
+  /**
+   *  根据坐标抓取天气信息
+   * @param lat
+   * @param lon
+   * @return
+   */
+  WeatherInfo getWeather(String lat, String lon);
 
 }

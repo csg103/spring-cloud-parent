@@ -3,6 +3,7 @@ package com.csg.parse;
 
 import com.alibaba.fastjson.JSONObject;
 import com.csg.dto.Video;
+import com.csg.dto.WeatherInfo;
 import com.csg.parse.video.Letv;
 import com.csg.tools.UrlUtils;
 import lombok.extern.log4j.Log4j2;
@@ -60,6 +61,11 @@ public class VideoParserManager implements ParserManager {
         }
         log.debug("VIDEO: " + JSONObject.toJSONString(video));
         return video;
+    }
+
+    @Override
+    public WeatherInfo getWeather(String lat, String lon) {
+        return null;
     }
 
 //    /**

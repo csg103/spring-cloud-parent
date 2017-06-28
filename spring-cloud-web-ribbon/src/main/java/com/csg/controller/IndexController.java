@@ -4,12 +4,10 @@ package com.csg.controller;
 import com.csg.dto.VideoDTO;
 import com.csg.redis.RedisSourceManager;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**

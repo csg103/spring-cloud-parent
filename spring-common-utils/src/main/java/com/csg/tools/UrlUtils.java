@@ -1,5 +1,7 @@
 package com.csg.tools;
 
+
+
 import lombok.extern.log4j.Log4j2;
 
 import java.net.MalformedURLException;
@@ -9,7 +11,6 @@ import java.net.URL;
  * Url 工具类
  * Created by Silence on 2016/11/24.
  */
-@Log4j2
 public class UrlUtils {
 
   public static String getDomain(String url){
@@ -18,7 +19,7 @@ public class UrlUtils {
       URL target = new URL(url);
       domain = target.getHost();
     } catch (MalformedURLException e) {
-      log.error("Url("+url+") Cannot convert to BASIC-URL");
+   //   log.error("Url("+url+") Cannot convert to BASIC-URL");
       e.printStackTrace();
     }
     return domain;
@@ -34,7 +35,7 @@ public class UrlUtils {
         return part[part.length-2] + "." + part[part.length-1];
       }
     } catch (MalformedURLException e) {
-      log.error("Url("+url+") Cannot convert to BASIC-URL");
+   //   log.error("Url("+url+") Cannot convert to BASIC-URL");
       e.printStackTrace();
     }
     return domain;

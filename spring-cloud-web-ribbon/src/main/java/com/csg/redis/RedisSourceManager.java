@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+
 /**
  * 视频资源管理器
  * Created by Silence on 2017/2/12.

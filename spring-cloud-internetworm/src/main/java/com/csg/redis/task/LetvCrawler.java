@@ -60,7 +60,7 @@ public class LetvCrawler {
      * 爬乐视PC官网-首页轮播信息
      */
     private void saveCarouselsToRedis(Document document) {
-        List<VideoDTO> carouselVideos = new ArrayList<>();
+        List<VideoDTO> carouselVideos = new ArrayList<VideoDTO>();
         Elements carousels = document.select("div.chart-info ul.slides li");
         for (Element carousel : carousels) {
             VideoDTO videoDTO = new VideoDTO();
@@ -130,7 +130,7 @@ public class LetvCrawler {
     }
 
     private List<VideoDTO> getVideosFromPhoneDocument(Document document) {
-        List<VideoDTO> videos = new ArrayList<>();
+        List<VideoDTO> videos = new ArrayList<VideoDTO>();
         Elements videoElements = document.select("div.column_body div a");
         for (Element element : videoElements) {
             VideoDTO videoDTO = new VideoDTO();
@@ -151,7 +151,7 @@ public class LetvCrawler {
     }
 
     private List<VideoDTO> getHostsFromPhoneDocument(Document document, int size) {
-        List<VideoDTO> videos = new ArrayList<>();
+        List<VideoDTO> videos = new ArrayList<VideoDTO>();
         Elements videoElements = document.select("div.column.tab_cnt a");
         for (int i = 0; i < size; i++) {
             Element element = videoElements.get(i);

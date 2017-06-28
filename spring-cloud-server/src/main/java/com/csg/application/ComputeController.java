@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@Log4j2
 public class ComputeController {
 
     private DiscoveryClient client;
@@ -19,7 +18,6 @@ public class ComputeController {
         ServiceInstance instance = client.getLocalServiceInstance();
         //Integer r = 1=2;
       //  log("/add, host:" );
-        log.info("hhahh");
         return JSONObject.toJSONString(paramMap.get("data"));
     }
 }
