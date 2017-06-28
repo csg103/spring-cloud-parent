@@ -27,10 +27,9 @@ public class WeatherController {
      * 解析视频
      */
   @GetMapping("/api/getWeather")
-  public WeatherInfo play(Model model, @RequestParam String x, @RequestParam String y){
-    List weatherList = parserWeather.getWeather(x,y);
-    model.addAttribute("weather",weatherList);
-    return new WeatherInfo();
+  public List play(Model model, @RequestParam String x, @RequestParam String y){
+    
+    return  parserWeather.getWeather(x,y);
   }
 
 
