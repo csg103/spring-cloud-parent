@@ -280,15 +280,14 @@
         $.ajax({
             url:"api/getWeather",
             type:"get",
-            dataType:"jsonp",
+            dataType:"json",
             data:{"x":x,"y":y},
             async: false,
-            crossDomain: true,
             headers: {'Content-Type': 'application/json'},
             success: function (res) {
-                alert();
-                alert(res);
-                var time =res[0].time;
+                $("#temperature").html(res[0].temperature);
+                $("#time").html(res[0].time);
+
             },
             error: function(XMLHttpRequest, textStatus) {
                 alert(XMLHttpRequest.status);

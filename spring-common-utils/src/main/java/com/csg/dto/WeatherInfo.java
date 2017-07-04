@@ -14,6 +14,7 @@ public class WeatherInfo {
     private  String time;
     private String weatherAM;
     private String weatherPM;
+    private String Temperature;
     private String topTemperature;
     private  String lowTemperature;
 }

@@ -16,8 +16,6 @@ public class ComputeController {
     @RequestMapping(value = "/add")
     public String add(@RequestParam MultiValueMap paramMap) {
         ServiceInstance instance = client.getLocalServiceInstance();
-        //Integer r = 1=2;
-      //  log("/add, host:" );
         return JSONObject.toJSONString(paramMap.get("data"));
     }
 }
