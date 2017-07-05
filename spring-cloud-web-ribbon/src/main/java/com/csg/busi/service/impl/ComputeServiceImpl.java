@@ -1,8 +1,9 @@
-package com.csg.application;
+package com.csg.busi.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.csg.application.UserInfoPOJO;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -20,7 +21,7 @@ import java.util.Map;
 import static org.bouncycastle.asn1.ua.DSTU4145NamedCurves.params;
 
 @Service
-public class ComputeService {
+public class ComputeServiceImpl {
     @Autowired
     RestTemplate restTemplate;
     @HystrixCommand(fallbackMethod = "addServiceFallback")

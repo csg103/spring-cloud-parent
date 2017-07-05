@@ -1,7 +1,7 @@
 package com.csg.controller;
 
 
-import com.csg.application.ComputeService;
+import com.csg.busi.service.impl.ComputeServiceImpl;
 import com.csg.dto.VideoDTO;
 import com.csg.redis.RedisSourceManager;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ public class IndexController {
 
   private final RedisSourceManager redisSourceManager;
 
-  private ComputeService computeService;
+  private ComputeServiceImpl computeServiceImpl;
 
   /**
    * 首页
@@ -53,7 +53,7 @@ public class IndexController {
    */
   @GetMapping("video")
   public String video(Model model){
-    computeService.addService();
+    computeServiceImpl.addService();
     model.addAttribute("navIndex", 4);
     return "author";
   }

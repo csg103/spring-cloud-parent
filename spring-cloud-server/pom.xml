@@ -58,6 +58,44 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
+		<!-- 添加JPA支持-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- 移除 Tomcat 连接池，使用 HikariCP  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- 移除 tomcat-jdbc, Spring Boot 将会自动使用 HikariCP。  JDBC连接池 性能优于druid 、dbcp、tomcatJDBC连接池 -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+
+		<!-- Mariadb 依赖 驱动  Mariadb数据库驱动，使用Mariadb数据库性能优于mysql-->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>1.5.9</version>
+		</dependency>
+
+		<!-- mysql数据库驱动
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		-->
 	</dependencies>
 
 	<dependencyManagement>
