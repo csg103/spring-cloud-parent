@@ -285,16 +285,18 @@
             async: false,
             headers: {'Content-Type': 'application/json'},
             success: function (res) {
+
                 $("#temperature").html(res[0].temperature);
                 $("#time").html(res[0].time);
-
-            },
+      },
             error: function(XMLHttpRequest, textStatus) {
                 alert(XMLHttpRequest.status);
                 alert(XMLHttpRequest.readyState);
                 alert(textStatus);
             }
         })
+
+
     }
 </script>
 

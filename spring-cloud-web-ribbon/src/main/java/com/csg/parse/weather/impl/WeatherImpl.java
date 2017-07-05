@@ -42,10 +42,12 @@ public class WeatherImpl implements ParserWeather {
             Elements img1 = li.select("i img[src]");
 
             weatherInfo.setWeatherAM(img1.get(0).attr("src"));
+            if(img1.size()>1)
             weatherInfo.setWeatherPM(img1.get(1).attr("src"));
 
             Elements temperature = li.select("span");
             weatherInfo.setTemperature(temperature.text());
+
             list.add(weatherInfo);
         }
         return list;
