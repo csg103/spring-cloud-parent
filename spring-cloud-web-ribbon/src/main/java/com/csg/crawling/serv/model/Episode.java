@@ -1,4 +1,4 @@
-package com.csg.serv.model;
+package com.csg.crawling.serv.model;
 
 import lombok.Data;
 

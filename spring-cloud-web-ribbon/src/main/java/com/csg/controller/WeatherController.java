@@ -2,7 +2,7 @@ package com.csg.controller;
 
 
 
-import com.csg.parse.weather.ParserWeather;
+import com.csg.crawling.parse.weather.ParserWeather;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

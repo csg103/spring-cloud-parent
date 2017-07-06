@@ -1,9 +1,7 @@
-package com.csg.application.entity;
+package com.csg.application.dto;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.Date;
 
 /*
@@ -12,10 +10,8 @@ import java.util.Date;
 * 时间 ： 2017-07-05
 */
 @Data
-@Entity(name = "t_Course")
-public class CourseVO {
+public class CourseDto {
     //课程ID
-    @Id
     private String c_course_id;
     //课程名
     private String c_course_name;
@@ -26,11 +22,11 @@ public class CourseVO {
     //课程分类
     private String c_course_type;
     //学习人数
-    private Integer  n_course_num;
+    private int n_course_num;
     //课程创建时间
     private Date d_course_time;
     //课程创建人
-    private String c_courser;
+    private String c_create_course_opt;
 
 
 }

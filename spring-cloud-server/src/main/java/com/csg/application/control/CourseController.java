@@ -8,6 +8,8 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 public class CourseController {
@@ -16,8 +18,8 @@ public class CourseController {
     private DiscoveryClient client;
     @RequestMapping(value = "/add")
     public String findCourse(@RequestParam MultiValueMap paramMap) {
-        courseService.findCourse();
+       List corseList = courseService.findCourse();
         ServiceInstance instance = client.getLocalServiceInstance();
-        return JSONObject.toJSONString(paramMap.get("data"));
+        return JSONObject.toJSONString(corseList);
     }
 }

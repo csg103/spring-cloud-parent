@@ -1,4 +1,4 @@
-package com.csg.parse.weather;
+package com.csg.crawling.parse.weather;
 
 import java.util.List;
 

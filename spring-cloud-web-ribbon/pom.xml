@@ -34,6 +34,13 @@
 	</properties>
 
 	<dependencies>
+		<!-- 引入DTO对象，主要用于调用端接收服务端返回的JSON对象转化为实体对象方便操作-->
+		<dependency>
+			<groupId>com.csg</groupId>
+			<artifactId>spring-common-entity</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
 		<dependency>
 			<artifactId>spring-common-utils</artifactId>
 			<groupId>com.csg</groupId>

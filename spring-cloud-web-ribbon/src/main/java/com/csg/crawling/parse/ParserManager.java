@@ -1,4 +1,4 @@
-package com.csg.parse;
+package com.csg.crawling.parse;
 
 
 import com.csg.dto.Video;

@@ -23,6 +23,7 @@
 	</properties>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>com.csg</groupId>
 			<artifactId>spring-common-utils</artifactId>

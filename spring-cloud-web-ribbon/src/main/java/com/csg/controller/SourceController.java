@@ -1,7 +1,7 @@
 package com.csg.controller;
 
 import com.csg.dto.Video;
-import com.csg.parse.ParserManager;
+import com.csg.crawling.parse.ParserManager;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,7 +1,7 @@
-package com.csg.parse;
+package com.csg.crawling.parse;
 
 
-import com.csg.serv.model.Episode;
+import com.csg.crawling.serv.model.Episode;
 
 import java.util.List;
 

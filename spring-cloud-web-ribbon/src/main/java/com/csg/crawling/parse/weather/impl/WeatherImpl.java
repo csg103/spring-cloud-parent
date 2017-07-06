@@ -1,7 +1,7 @@
-package com.csg.parse.weather.impl;
+package com.csg.crawling.parse.weather.impl;
 
 import com.csg.dto.WeatherInfo;
-import com.csg.parse.weather.ParserWeather;
+import com.csg.crawling.parse.weather.ParserWeather;
 import com.csg.tools.JsoupUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;

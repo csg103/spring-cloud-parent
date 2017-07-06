@@ -1,9 +1,9 @@
 package com.csg.controller;
 
 
-import com.csg.busi.service.impl.ComputeServiceImpl;
+import com.csg.busi.service.impl.CourseServiceImpl;
 import com.csg.dto.VideoDTO;
-import com.csg.redis.RedisSourceManager;
+import com.csg.crawling.redis.RedisSourceManager;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,7 @@ public class IndexController {
 
   private final RedisSourceManager redisSourceManager;
 
-  private ComputeServiceImpl computeServiceImpl;
+  private CourseServiceImpl courseServiceImpl;
 
   /**
    * 首页
@@ -53,7 +53,7 @@ public class IndexController {
    */
   @GetMapping("video")
   public String video(Model model){
-    computeServiceImpl.addService();
+    courseServiceImpl.findCourse();
     model.addAttribute("navIndex", 4);
     return "author";
   }

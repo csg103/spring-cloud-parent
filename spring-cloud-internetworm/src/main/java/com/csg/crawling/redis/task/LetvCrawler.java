@@ -1,8 +1,8 @@
-package com.csg.redis.task;
+package com.csg.crawling.redis.task;
 
 
 import com.csg.dto.VideoDTO;
-import com.csg.redis.RedisSourceManager;
+import com.csg.crawling.redis.RedisSourceManager;
 import com.csg.tools.JsoupUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;

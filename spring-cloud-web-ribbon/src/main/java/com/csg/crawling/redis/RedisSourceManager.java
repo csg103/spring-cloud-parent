@@ -1,4 +1,4 @@
-package com.csg.redis;
+package com.csg.crawling.redis;
 
 import com.alibaba.fastjson.JSONObject;
 import com.csg.dto.VideoDTO;

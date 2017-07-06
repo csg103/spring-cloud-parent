@@ -24,6 +24,7 @@ public class CourseServiceImpl implements CourseService{
     @Override
     public List<CourseVO> findCourse() {
         log.info("查询课程——————————————");
+
         return courseDAO.findAll();
     }
 }

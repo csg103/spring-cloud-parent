@@ -1,10 +1,10 @@
-package com.csg.parse;
+package com.csg.crawling.parse;
 
 
 import com.alibaba.fastjson.JSONObject;
 import com.csg.dto.Video;
 import com.csg.dto.WeatherInfo;
-import com.csg.parse.video.Letv;
+import com.csg.crawling.parse.video.Letv;
 import com.csg.tools.UrlUtils;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang.StringUtils;

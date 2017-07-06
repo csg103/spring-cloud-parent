@@ -1,11 +1,11 @@
-package com.csg.parse.video;
+package com.csg.crawling.parse.video;
 
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.csg.dto.Video;
-import com.csg.parse.Parser;
-import com.csg.serv.model.Episode;
+import com.csg.crawling.parse.Parser;
+import com.csg.crawling.serv.model.Episode;
 import com.csg.tools.JsoupUtils;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.jsoup.nodes.Document;
