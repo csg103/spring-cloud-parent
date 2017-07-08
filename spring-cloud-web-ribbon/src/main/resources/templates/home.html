@@ -8,13 +8,16 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/semantic.min1.css">
+    <link href="//cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.css" rel="stylesheet">
+
+    <script src="//cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.js"></script>
+
+
 </head>
 
 <body style="background-color: #f1f1f1; padding-bottom: 0">
-
 <div th:include="header :: nav"></div>
-
-
 <!-- Start Carousel -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 50px">
     <!-- Indicators -->
@@ -40,6 +43,7 @@
 </div>
 <!-- End carousel -->
 
+
 <!-- Start Content -->
 <div class="container" style="padding-top: 0">
 
@@ -52,18 +56,16 @@
             </button>
         </div>
     </div>
-    <div class="row videoBox">
-        <div class="col-md-2 col-sm-4 col-xs-6 videoItem" th:each="recommend, iterStat:${recommends}">
-            <a th:href="@{/play(v=${recommend.value})}" th:if="${iterStat.index} < 6" class="videoUrl">
-                <img th:src="${recommend.image}" alt="" class="img-responsive img-thumbnail videoImage">
-                <div class="caption">
-                    <p class="text-left videoTitle" th:text="${recommend.title}"></p>
+
+    <div class="ui five column grid">
+
+        <div class="column" th:each="recommend, iterStat:${recommends}" th:if="${iterStat.index} < 10">
+
+            <div class="ui segment">
+                <img th:src="${recommend.image}" th:href="@{/play(v=${recommend.value})}" class="ui fluid image">
+
+                <div class="content" th:text="${recommend.title}">
                 </div>
-            </a>
-            <div th:if="${iterStat.index} >= 6" hidden>
-                <ul class="videoImage">[[${recommend.image}]]</ul>
-                <ul class="videoTitle">[[${recommend.title}]]</ul>
-                <a th:href="@{/play(v=${recommend.value})}" class="videoUrl"></a>
             </div>
         </div>
     </div>
@@ -223,73 +225,71 @@
 
     /* "换一批" 功能 */
     $(".refresh").click(
-            function ()
-            {
-                var size = $(this).val();
-                for (var i = 0; i < size; i++) {
-                    var videoBox = $(this).parent().parent().next().find(".videoItem");
-                    var imageValue = videoBox.eq(i).find(".videoImage").eq(0).attr("src");
-                    var titleValue = videoBox.eq(i).find(".videoTitle").eq(0).text();
-                    var urlValue = videoBox.eq(i).find(".videoUrl").eq(0).attr("href");
-                    var node = videoBox.eq(size);
-                    var image = node.find(".videoImage").eq(0).text();
-                    var title = node.find(".videoTitle").eq(0).text();
-                    var url = node.find(".videoUrl").eq(0).attr("href");
-                    videoBox.eq(i).find(".videoImage").eq(0).attr("src", image);
-                    videoBox.eq(i).find(".videoTitle").eq(0).text(title);
-                    videoBox.eq(i).find(".videoUrl").eq(0).attr("href", url);
-                    node.remove();
-                    var divBox = $("<div class=\"videoItem\"></div>");
-                    var hiddenNode = $("<div hidden></div>");
-                    var imageNode = $("<ul class=\"videoImage\"></ul>");
-                    var titleNode = $("<ul class=\"videoTitle\"></ul>");
-                    var urlNode = $("<a href='' class=\"videoUrl\"></a>");
-                    imageNode.text(imageValue);
-                    titleNode.text(titleValue);
-                    urlNode.attr("href", urlValue);
-                    hiddenNode.append(imageNode);
-                    hiddenNode.append(titleNode);
-                    hiddenNode.append(urlNode);
-                    divBox.append(hiddenNode);
-                    $(this).parent().parent().next().append(divBox);
-                }
+        function () {
+            var size = $(this).val();
+            for (var i = 0; i < size; i++) {
+                var videoBox = $(this).parent().parent().next().find(".videoItem");
+                var imageValue = videoBox.eq(i).find(".videoImage").eq(0).attr("src");
+                var titleValue = videoBox.eq(i).find(".videoTitle").eq(0).text();
+                var urlValue = videoBox.eq(i).find(".videoUrl").eq(0).attr("href");
+                var node = videoBox.eq(size);
+                var image = node.find(".videoImage").eq(0).text();
+                var title = node.find(".videoTitle").eq(0).text();
+                var url = node.find(".videoUrl").eq(0).attr("href");
+                videoBox.eq(i).find(".videoImage").eq(0).attr("src", image);
+                videoBox.eq(i).find(".videoTitle").eq(0).text(title);
+                videoBox.eq(i).find(".videoUrl").eq(0).attr("href", url);
+                node.remove();
+                var divBox = $("<div class=\"videoItem\"></div>");
+                var hiddenNode = $("<div hidden></div>");
+                var imageNode = $("<ul class=\"videoImage\"></ul>");
+                var titleNode = $("<ul class=\"videoTitle\"></ul>");
+                var urlNode = $("<a href='' class=\"videoUrl\"></a>");
+                imageNode.text(imageValue);
+                titleNode.text(titleValue);
+                urlNode.attr("href", urlValue);
+                hiddenNode.append(imageNode);
+                hiddenNode.append(titleNode);
+                hiddenNode.append(urlNode);
+                divBox.append(hiddenNode);
+                $(this).parent().parent().next().append(divBox);
             }
+        }
     );
 
     /* 获取友情链接信息 */
     $(document).ready(
-            function ()
-            {
-                $.ajax({
-                    url:"https://api.map.baidu.com/location/ip?ak=Bnri1fKeSDqQ9z5G9ckvfGue&coor=bd09ll",
-                    type:"get",
-                    dataType:"jsonp",
-                    data:"",
-                    crossDomain: true,
-                    headers: {'Content-Type': 'application/json'},
-                    success: function (res) {
-                        getWeather(res.content.point.x,res.content.point.y);
+        function () {
+            $.ajax({
+                url: "https://api.map.baidu.com/location/ip?ak=Bnri1fKeSDqQ9z5G9ckvfGue&coor=bd09ll",
+                type: "get",
+                dataType: "jsonp",
+                data: "",
+                crossDomain: true,
+                headers: {'Content-Type': 'application/json'},
+                success: function (res) {
+                    getWeather(res.content.point.x, res.content.point.y);
 
-                    }
-                })
-            }
+                }
+            })
+        }
     );
 
-//根据经纬度查询天气
-    function getWeather(x,y){
+    //根据经纬度查询天气
+    function getWeather(x, y) {
         $.ajax({
-            url:"api/getWeather",
-            type:"get",
-            dataType:"json",
-            data:{"x":x,"y":y},
+            url: "api/getWeather",
+            type: "get",
+            dataType: "json",
+            data: {"x": x, "y": y},
             async: false,
             headers: {'Content-Type': 'application/json'},
             success: function (res) {
 
                 $("#temperature").html(res[0].temperature);
                 $("#time").html(res[0].time);
-      },
-            error: function(XMLHttpRequest, textStatus) {
+            },
+            error: function (XMLHttpRequest, textStatus) {
                 alert(XMLHttpRequest.status);
                 alert(XMLHttpRequest.readyState);
                 alert(textStatus);

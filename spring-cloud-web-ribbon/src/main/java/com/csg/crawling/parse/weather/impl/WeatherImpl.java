@@ -23,7 +23,7 @@ import java.util.List;
 @Log4j2
 @AllArgsConstructor
 public class WeatherImpl implements ParserWeather {
-    private static final String WEATHER = "http://m.weather.com.cn/mtown/index";
+    private static final String WEATHER = "http://m.weather.com.cn/d/town/index";
 
 
     @Override
@@ -31,25 +31,36 @@ public class WeatherImpl implements ParserWeather {
         String url = WEATHER + "?lon=" + lat.substring(0, 9) + "&lat=" + lon.substring(0, 9);
         Document document = JsoupUtils.getDocWithPhone(url);
 
-        Elements div = document.select("div.days7 ul li");
+        Elements time = document.select("div.weather-position-address h2");
+        Elements mes = document.select("div.midd ");
+        Elements temperature = mes.select("h1");
+        Elements weather = mes.select("h2");
+
+        String tem = weather.text()+ temperature.select("i").text()+        temperature.select("span").text();
+
         List list = new ArrayList();
-        for (Element element : div) {
+        WeatherInfo weatherInfo = new WeatherInfo();
+        weatherInfo.setTemperature(tem);
+        weatherInfo.setTime(time.text());
+        list.add(weatherInfo);
 
-            WeatherInfo weatherInfo = new WeatherInfo();
-            Elements li = element.select("li");
-            Elements time = li.select("b");
-            weatherInfo.setTime(time.text());
-            Elements img1 = li.select("i img[src]");
-
-            weatherInfo.setWeatherAM(img1.get(0).attr("src"));
-            if(img1.size()>1)
-            weatherInfo.setWeatherPM(img1.get(1).attr("src"));
-
-            Elements temperature = li.select("span");
-            weatherInfo.setTemperature(temperature.text());
-
-            list.add(weatherInfo);
-        }
+//        for (Element element : div) {
+//
+//            WeatherInfo weatherInfo = new WeatherInfo();
+//            Elements li = element.select("li");
+//            Elements time = li.select("b");
+//            weatherInfo.setTime(time.text());
+//            Elements img1 = li.select("i img[src]");
+//
+//            weatherInfo.setWeatherAM(img1.get(0).attr("src"));
+//            if(img1.size()>1)
+//            weatherInfo.setWeatherPM(img1.get(1).attr("src"));
+//
+//            Elements temperature = li.select("span");
+//            weatherInfo.setTemperature(temperature.text());
+//
+//            list.add(weatherInfo);
+//        }
         return list;
     }
 }
