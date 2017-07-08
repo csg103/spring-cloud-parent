@@ -1,6 +1,6 @@
 package com.csg.application.service;
 
-import com.csg.application.entity.CourseVO;
+import com.csg.application.entity.CourseVo;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ import java.util.List;
 */
 public interface CourseService
 {
-     List<CourseVO> findCourse();
+     List<CourseVo> findCourse();
 }

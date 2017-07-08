@@ -2,8 +2,7 @@ package com.csg.application.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /*
@@ -13,10 +12,12 @@ import java.util.Date;
 */
 @Data
 @Entity(name = "t_Course")
-public class CourseVO {
+public class CourseVo {
     //课程ID
     @Id
-    private String c_course_id;
+    @Column(name="c_course_id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
     //课程名
     private String c_course_name;
     //讲师名
@@ -24,7 +25,7 @@ public class CourseVO {
     //课程简介
     private String c_course_description;
     //课程分类
-    private String c_course_type;
+    private String c_course_type_id;
     //学习人数
     private Integer  n_course_num;
     //课程创建时间
