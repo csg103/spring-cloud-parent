@@ -17,7 +17,8 @@
 <body style="background-color: #f1f1f1; padding-bottom: 0">
 <div th:include="header :: nav"></div>
 <!-- Start Carousel -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top: 50px">
+<div id="myCarousel" class="carousel slide" data-ride="carousel"
+     style="margin-top: 50px; padding-left: 2%;padding-right: 2%">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li th:each="carouselPic,iterStat:${carouselPics}" data-target="#myCarousel"
@@ -45,24 +46,32 @@
 <div class="main ui container" style="margin-top: 20px ; padding-top: 0">
 
     <div class="ui segment">
-        <div class="ui left close rail" style="padding-right: 20px;width: 100%" value="10">
+        <div class="ui left close rail" style="padding-right: 20px;width: 100%">
             <div class="ui segment">
                 <h3 style=" text-align:right">综艺</h3>
             </div>
         </div>
-        <div class="ui right close rail" style="padding-left: 20px;width: 100%" value="11">
+        <div class="ui right close rail num" style="padding-left: 20px;width: 100%" value="10">
             <div class="ui segment">
                 <h3 style=" text-align:left">刷新</h3>
             </div>
         </div>
         <!-- 综艺 -->
-        <div class="ui five column grid">
-            <div class="column" th:each="recommend, iterStat:${recommends}" th:if="${iterStat.index} < 10">
-                <div class="ui segment">
-                    <a id="zongyiid" th:href="@{/play(v=${recommend.value})}">
-                        <img th:src="${recommend.image}" class="ui fluid image" alt="">
+        <div class="ui five column grid add">
+            <div class="column  videoItem" th:each="recommend, iterStat:${recommends}" th:if="${iterStat.index} < 10">
+                <div class="ui segment  ">
+                    <a th:href="@{/play(v=${recommend.value})}" class="videoUrl">
+                        <img th:src="${recommend.image}" class="ui fluid image videoImage" alt="">
                     </a>
-                    <div class="header" th:text="${recommend.title}"></div>
+                    <div class="description videoTitle" th:text="${recommend.title}">
+                    </div>
+                </div>
+            </div>
+            <div th:each="recommend, iterStat:${recommends}" th:if="${iterStat.index} >= 10" class="videoItem">
+                <div th:if="${iterStat.index} >= 10" class="hidden">
+                    <p class="videoImage" th:value="${recommend.image}"></p>
+                    <p class="videoTitle" th:value="${recommend.title}"></p>
+                    <a class="videoUrl" th:href="@{/play(v=${recommend.value})}"></a>
                 </div>
             </div>
             <!-- END 综艺 -->
@@ -75,22 +84,27 @@
                 <h3 style=" text-align:right">直播</h3>
             </div>
         </div>
-        <div class="ui right close   rail" style="padding-left: 20px;width: 100%">
+        <div class="ui right close   rail num" style="padding-left: 20px;width: 100%" th:value="8">
             <div class="ui segment">
                 <h3 style=" text-align:left">刷新</h3>
             </div>
         </div>
         <div class="main ui container" style="margin-top: 20px ; padding-top: 0">
-            <div class="ui four column grid">
-                <div class="column" th:each="live, iterStat:${lives}" th:if="${iterStat.index} < 8">
-
-                    <div class="ui segment">
-
-                        <a th:href="@{/play(v=${live.value})}">
-                            <img th:src="${live.image}" class="ui fluid image" alt="">
+            <div class="ui four column grid add">
+                <div class="column  videoItem" th:each="live, iterStat:${lives}" th:if="${iterStat.index} < 8">
+                    <div class="ui segment  ">
+                        <a th:href="@{/play(v=${live.value})}" class="videoUrl">
+                            <img th:src="${live.image}" class="ui fluid image videoImage" alt="">
                         </a>
-                        <div class="content" th:text="${live.title}">
+                        <div class="description videoTitle" th:text="${live.title}">
                         </div>
+                    </div>
+                </div>
+                <div th:each="live, iterStat:${lives}" th:if="${iterStat.index} >= 8" class="videoItem">
+                    <div th:if="${iterStat.index} >= 8" class="hidden">
+                        <p class="videoImage" th:value="${live.image}"></p>
+                        <p class="videoTitle" th:value="${live.title}"></p>
+                        <a class="videoUrl" th:href="@{/play(v=${live.value})}"></a>
                     </div>
                 </div>
             </div>
@@ -104,7 +118,7 @@
                 <h3 style=" text-align:right">电视剧</h3>
             </div>
         </div>
-        <div class="ui right close   rail" style="padding-left: 20px;width: 100%">
+        <div class="ui right close   rail num" style="padding-left: 20px;width: 100%" th:value="8">
             <div class="ui segment">
                 <h3 style=" text-align:left">刷新</h3>
             </div>
@@ -114,16 +128,22 @@
         <div class="main ui container" style="margin-top: 20px ; padding-top: 0">
             <div class="ui grid">
                 <div class="twelve wide column">
-                    <div class="ui four column grid">
-                        <div class="column" th:each="tvHot, iterStat:${tvHots}" th:if="${iterStat.index} < 8">
-
-                            <div class="ui segment">
-
-                                <a th:href="@{/play(v=${tvHot.value})}">
-                                    <img th:src="${tvHot.image}" class="ui fluid image" alt="">
+                    <div class="ui four column grid" add>
+                        <div class="column  videoItem" th:each="tvHot, iterStat:${tvHots}"
+                             th:if="${iterStat.index} < 8">
+                            <div class="ui segment  ">
+                                <a th:href="@{/play(v=${tvHot.value})}" class="videoUrl">
+                                    <img th:src="${tvHot.image}" class="ui fluid image videoImage" alt="">
                                 </a>
-                                <div class="content" th:text="${tvHot.title}">
+                                <div class="description videoTitle" th:text="${tvHot.title}">
                                 </div>
+                            </div>
+                        </div>
+                        <div th:each="tvHot, iterStat:${tvHots}" th:if="${iterStat.index} >= 8" class="videoItem">
+                            <div th:if="${iterStat.index} >= 8" class="hidden">
+                                <p class="videoImage" th:value="${tvHot.image}"></p>
+                                <p class="videoTitle" th:value="${tvHot.title}"></p>
+                                <a class="videoUrl" th:href="@{/play(v=${tvHot.value})}"></a>
                             </div>
                         </div>
                     </div>
@@ -139,11 +159,8 @@
                            class="list-group-item"
                            th:text="${tvTop.title}"></a>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -154,7 +171,7 @@
                 <h3 style=" text-align:right">电影</h3>
             </div>
         </div>
-        <div class="ui right close   rail" style="padding-left: 20px;width: 100%">
+        <div class="ui right close  rail num" style="padding-left: 20px;width: 100%" value="8">
             <div class="ui segment">
                 <h3 style=" text-align:left">刷新</h3>
             </div>
@@ -163,14 +180,21 @@
         <div class="main ui container" style="margin-top: 20px ; padding-top: 0">
             <!-- 电影 -->
             <div class="twelve wide column">
-                <div class="ui four column grid">
-                    <div class="column" th:each="movie, iterStat:${movies}" th:if="${iterStat.index} < 8">
-                        <div class="ui segment">
-                            <a th:href="@{/play(v=${movie.value})}">
-                                <img th:src="${movie.image}" class="ui fluid image" alt="">
+                <div class="ui four column grid add">
+                    <div class="column  videoItem" th:each="movie, iterStat:${movies}" th:if="${iterStat.index} < 8">
+                        <div class="ui segment  ">
+                            <a th:href="@{/play(v=${movie.value})}" class="videoUrl">
+                                <img th:src="${movie.image}" class="ui fluid image videoImage" alt="">
                             </a>
-                            <div class="content" th:text="${movie.title}">
+                            <div class="description videoTitle" th:text="${movie.title}">
                             </div>
+                        </div>
+                    </div>
+                    <div th:each="movie, iterStat:${movies}" th:if="${iterStat.index} >= 8" class="videoItem">
+                        <div th:if="${iterStat.index} >= 8" class="hidden">
+                            <p class="videoImage" th:value="${movie.image}"></p>
+                            <p class="videoTitle" th:value="${movie.title}"></p>
+                            <a class="videoUrl" th:href="@{/play(v=${movie.value})}"></a>
                         </div>
                     </div>
                 </div>
@@ -205,18 +229,15 @@
                 </div>
                 <div th:each="animeHot, iterStat:${animeHots}" th:if="${iterStat.index} >= 10" class="videoItem">
                     <div th:if="${iterStat.index} >= 10" class="hidden">
-                        <p class="videoImage" th:value="${animeHot.image}" ></p>
-                        <p class="videoTitle" th:value="${animeHot.title}" ></p>
-                        <a  class="videoUrl" th:href="@{/play(u=${animeHot.value})}"></a>
+                        <p class="videoImage" th:value="${animeHot.image}"></p>
+                        <p class="videoTitle" th:value="${animeHot.title}"></p>
+                        <a class="videoUrl" th:href="@{/play(v=${animeHot.value})}"></a>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
     <!-- END 动漫 -->
-
 </div>
 
 <!-- 友情链接 -->
@@ -259,7 +280,11 @@
     //        })
     //    ;
 
-    /* "换一批" 功能 */
+    /* "刷新" 功能
+     * 获取单个列表全部数据，采用隐藏域对不需要展示的数据进行隐藏。
+     * 当刷新时，把当前展示数据获取存放到变量，然后把隐藏于前n条赋值给当前展示数据框
+     * 最后把存放在变量中的数据追加到隐藏域末尾
+     * */
     $(".num").click(
         function () {
             var size = $(this).attr("value");
@@ -269,7 +294,7 @@
                 var titleValue = videoBox.eq(i).find(".videoTitle").eq(0).text();
                 var urlValue = videoBox.eq(i).find(".videoUrl").eq(0).attr("href");
                 var node = videoBox.eq(size);
-                var image =node.find(".videoImage").eq(0).attr("value");
+                var image = node.find(".videoImage").eq(0).attr("value");
                 var title = node.find(".videoTitle").eq(0).attr("value");
                 var url = node.find(".videoUrl").eq(0).attr("href");
                 videoBox.eq(i).find(".videoImage").eq(0).attr("src", image);
@@ -281,8 +306,8 @@
                 var imageNode = $("<p class=\"videoImage\" ></p>");
                 var titleNode = $("<p class=\"videoTitle\" ></p>");
                 var urlNode = $("<a href='' class=\"videoUrl\"></a>");
-                imageNode.attr("value",imageValue);
-                titleNode.attr("value",titleValue);
+                imageNode.attr("value", imageValue);
+                titleNode.attr("value", titleValue);
                 urlNode.attr("href", urlValue);
                 hiddenNode.append(imageNode);
                 hiddenNode.append(titleNode);
@@ -329,11 +354,7 @@
                 alert(textStatus);
             }
         })
-
-
     }
 </script>
-
 </body>
-
 </html>
