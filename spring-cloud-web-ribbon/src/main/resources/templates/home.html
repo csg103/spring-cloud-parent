@@ -1,21 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>沧海云视频-个人定制视频库111</title>
-    <link rel="stylesheet" href="../css/carousel.css">
-    <link rel="stylesheet" href="../css/docs.min.css">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
-    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="//cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.css" rel="stylesheet">
-    <script src="//cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.js"></script>
 
-
-</head>
 
 <body style="background-color: #f1f1f1; padding-bottom: 0">
-<div th:include="header :: nav"></div>
+<div th:include="header :: nav">
 <!-- Start Carousel -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel"
      style="margin-top: 50px; padding-left: 2%;padding-right: 2%">
@@ -198,7 +185,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
             <!-- END 电影 -->
         </div>
     </div>
@@ -281,10 +268,10 @@
     //    ;
 
     /* "刷新" 功能
-     * 获取单个列表全部数据，采用隐藏域对不需要展示的数据进行隐藏。
-     * 当刷新时，把当前展示数据获取存放到变量，然后把隐藏于前n条赋值给当前展示数据框
-     * 最后把存放在变量中的数据追加到隐藏域末尾
-     * */
+    * 获取单个列表全部数据，采用隐藏域对不需要展示的数据进行隐藏。
+    * 当刷新时，把当前展示数据获取存放到变量，然后把隐藏于前n条赋值给当前展示数据框
+    * 最后把存放在变量中的数据追加到隐藏域末尾
+    * */
     $(".num").click(
         function () {
             var size = $(this).attr("value");
@@ -317,44 +304,7 @@
             }
         }
     );
-    /* 获取友情链接信息 */
-    $(document).ready(
-        function () {
-            $.ajax({
-                url: "https://api.map.baidu.com/location/ip?ak=Bnri1fKeSDqQ9z5G9ckvfGue&coor=bd09ll",
-                type: "get",
-                dataType: "jsonp",
-                data: "",
-                crossDomain: true,
-                headers: {'Content-Type': 'application/json'},
-                success: function (res) {
-                    getWeather(res.content.point.x, res.content.point.y);
 
-                }
-            })
-        }
-    );
-
-    //根据经纬度查询天气
-    function getWeather(x, y) {
-        $.ajax({
-            url: "api/getWeather",
-            type: "get",
-            dataType: "json",
-            data: {"x": x, "y": y},
-            async: false,
-            headers: {'Content-Type': 'application/json'},
-            success: function (res) {
-                $("#temperature").html(res[0].temperature);
-                $("#time").html(res[0].time);
-            },
-            error: function (XMLHttpRequest, textStatus) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
-            }
-        })
-    }
 </script>
 </body>
 </html>

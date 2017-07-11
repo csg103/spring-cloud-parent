@@ -27,7 +27,7 @@ public class SourceController {
     url = url.replaceAll("\\?(spm|from).*" , "");
     Video video = parseManager.parseVideo(url);
     model.addAttribute("video", video);
-    return "h5-video";
+    return "videoPlay";
   }
 
   /**
