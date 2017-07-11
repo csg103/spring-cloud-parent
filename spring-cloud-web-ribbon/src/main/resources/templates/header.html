@@ -1,76 +1,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>每当看到月亮想起我</title>
-    <link rel="stylesheet" href="../css/carousel.css">
-    <link rel="stylesheet" href="../css/docs.min.css">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
-    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="//cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.css" rel="stylesheet">
-    <script src="//cdn.bootcss.com/semantic-ui/2.2.10/semantic.min.js"></script>
 
-
-</head>
 <body>
-<script type="text/javascript">
-    /* 获取友情链接信息 */
-    $(document).ready(
-        function () {
-            $.ajax({
-                url: "https://api.map.baidu.com/location/ip?ak=Bnri1fKeSDqQ9z5G9ckvfGue&coor=bd09ll",
-                type: "get",
-                dataType: "jsonp",
-                data: "",
-                crossDomain: true,
-                headers: {'Content-Type': 'application/json'},
-                success: function (res) {
-                    alert();
-                    getWeather(res.content.point.x, res.content.point.y);
 
-                }
-            })
-        }
-    );
-
-    //根据经纬度查询天气
-    function getWeather(x, y) {
-        $.ajax({
-            url: "api/getWeather",
-            type: "get",
-            dataType: "json",
-            data: {"x": x, "y": y},
-            async: false,
-            headers: {'Content-Type': 'application/json'},
-            success: function (res) {
-                $("#temperature").html(res[0].temperature);
-                $("#time").html(res[0].time);
-            },
-            error: function (XMLHttpRequest, textStatus) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
-            }
-        })
-    }
-</script>
 <div th:fragment="nav">
     <!--header-->
-    <div class="ui inverted menu"   style="padding-left: 10%;height:50px">
-        <a href="/" class="red item" >乐视</a>
+    <div class="ui inverted menu" style="padding-left: 10%;height:50px">
+        <a href="/" class="red item">首页</a>
         <a class="orange item">技术教程</a>
-        <a class="yellow item ">网站建设</a>
-        <a class="olive item">Olive</a>
-        <a class="green item">Green</a>
-        <a class="teal item ">Teal</a>
+        <a class="olive item">舆情分析</a>
+        <a class="yellow item ">搜索</a>
+        <a class="green item">本站技术</a>
+        <a class="teal item ">联系作者</a>
         <div class="right menu" style="padding-right:10%">
-            <label   id ="time" class="ui item"></label>
-            <label id ="temperature" class="ui item"></label>
-            <a class="ui item" >
-            登陆
-        </a>
-
+            <label id="time" class="ui item"></label>
+            <label id="temperature" class="ui item"></label>
+            <a class="ui item">
+                登陆
+            </a>
         </div>
     </div>
 </div>
