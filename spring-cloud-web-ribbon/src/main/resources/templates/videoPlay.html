@@ -4,6 +4,7 @@
     <script src="https://cdn.bootcss.com/mediaelement/4.1.3/mediaelementplayer.js"></script>
     <script src="https://cdn.bootcss.com/mediaelement/4.1.2/renderers/twitch.js"></script>
     <script src="https://cdn.bootcss.com/mediaelement/4.1.2/renderers/vimeo.js"></script>
+    <script th:src="../js/video.js"></script>
 
 </head>
 <body>
@@ -70,6 +71,7 @@
     </div>
 </div>
 <script type="application/javascript">
+    startPage();
     /**
      *   获取当前电视剧的分集信息
      *   根据链接获取播放集列表
@@ -103,49 +105,6 @@
     });
 
 
-    /* 获取H5所在经纬度信息 */
-    $(document).ready(
-        function () {
-            $.ajax({
-                url: "https://api.map.baidu.com/location/ip?ak=Bnri1fKeSDqQ9z5G9ckvfGue&coor=bd09ll",
-                type: "get",
-                dataType: "jsonp",
-                data: "",
-                crossDomain: true,
-                headers: {'Content-Type': 'application/json'},
-                success: function (res) {
-                    getWeather(res.content.point.x, res.content.point.y);
-
-                },
-                error: function (XMLHttpRequest, textStatus) {
-                    alert(XMLHttpRequest.status);
-                    alert(XMLHttpRequest.readyState);
-                    alert(textStatus);
-                }
-            })
-        }
-    );
-
-    //根据经纬度查询天气
-    function getWeather(x, y) {
-        $.ajax({
-            url: "api/getWeather",
-            type: "get",
-            dataType: "json",
-            data: {"x": x, "y": y},
-            async: false,
-            headers: {'Content-Type': 'application/json'},
-            success: function (res) {
-                $("#temperature").html(res[0].temperature);
-                $("#time").html(res[0].time);
-            },
-            error: function (XMLHttpRequest, textStatus) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
-            }
-        })
-    }
 </script>
 </body>
 </html>
