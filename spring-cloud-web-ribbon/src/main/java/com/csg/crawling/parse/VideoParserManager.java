@@ -48,6 +48,7 @@ public class VideoParserManager implements ParserManager {
      */
     public Video parseVideo(String url) {
         String cacheValue = redisTemplate.opsForValue().get(url);
+        cacheValue="";
         Video video;
         if (StringUtils.isEmpty(cacheValue)) {
             log.info("Parse：" + url);
